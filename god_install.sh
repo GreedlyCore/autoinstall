@@ -11,18 +11,33 @@ sudo apt install -y \
     libboost-all-dev libeigen3-dev libblas-dev liblapack-dev libatlas-base-dev \
     libomp-dev libtbb-dev libyaml-cpp-dev libconsole-bridge-dev libpcl-dev \
     ripgrep fuse \
-    terminator code nvtop iotop nload screen tmux openssh-server
+    terminator nvtop iotop nload screen tmux openssh-server
+
+sudo snap install code --classic
+sudo snap install chromium
+
+# VS Code extensions
+code --install-extension ms-vscode-remote.remote-ssh --force
+code --install-extension ms-vscode-remote.remote-ssh-edit --force
+code --install-extension ms-vscode.remote-explorer --force
+code --install-extension ms-python.python --force
+code --install-extension ms-vscode.cmake-tools --force
+code --install-extension ms-vscode.cpptools --force
+code --install-extension ms-vscode.cpptools-extension-pack --force
+code --install-extension ms-vscode.cpptools-themes --force
+code --install-extension zchrissirhcz.cmake-highlight --force
+code --install-extension twxs.cmake --force
 
 # Related to ~Colcon (ROS2 build tool)
-sudo sh -c 'echo "deb [arch=amd64,arm64] http://repo.ros2.org/ubuntu/main `lsb_release -cs` main" > /etc/apt/sources.list.d/ros2-latest.list'
-curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
-sudo apt update
-sudo apt install -y python3-colcon-common-extensions
+# sudo sh -c 'echo "deb [arch=amd64,arm64] http://repo.ros2.org/ubuntu/main `lsb_release -cs` main" > /etc/apt/sources.list.d/ros2-latest.list'
+# curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -
+# sudo apt update
+# sudo apt install -y python3-colcon-common-extensions
 
 # Python pip packages
-pip3 install --upgrade pip setuptools wheel
-pip3 install flake8 pytest pytest-cov mypy numpy scipy matplotlib jupyter
-pip3 install --user transforms3d pyquaternion opencv-python open3d pandas sympy scikit-learn pillow
+# pip3 install --upgrade pip setuptools wheel
+# pip3 install flake8 pytest pytest-cov mypy numpy scipy matplotlib jupyter
+# pip3 install --user transforms3d pyquaternion opencv-python open3d pandas sympy scikit-learn pillow
 
 # .bashrc additions
 cat >> ~/.bashrc << 'EOF'
