@@ -5,7 +5,7 @@ sudo apt update
 sudo apt upgrade -y
 
 sudo apt install -y \
-    build-essential cmake make htop git net-tools curl wget \
+    build-essential cmake make htop git net-tools tmux curl wget \
     software-properties-common apt-transport-https ca-certificates gnupg lsb-release \
     nmap tree gcc-9 g++-9 python3-pip python3-dev python3-venv gdb \
     libboost-all-dev libeigen3-dev libblas-dev liblapack-dev libatlas-base-dev \

@@ -1,6 +1,9 @@
 #!/bin/bash
 set -e
 
+# TODO:Select between humble(22) and jazzy(24)
+# <humble/jazzy> <bash/zsh>
+
 command_exists() {
   command -v "$@" >/dev/null 2>&1
 }
