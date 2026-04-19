@@ -1,0 +1,25 @@
+services:
+  jupyter:
+    build: .
+    container_name: jupyter_yolo
+    ports:
+      - "8888:8888"   # Maps host port 8888 to container port 8888
+    volumes:
+      - ./notebooks:/home/jovyan/work   # Persist your .ipynb files
+      - ./config:/home/jovyan/.jupyter  # Persist Jupyter config (optional)
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+      - JUPYTER_TOKEN=choose_a_secure_token_here  # CHANGE THIS!
+      - GRANT_SUDO=yes
+      - NB_UID=1000
+      - NB_GID=100
+    restart: unless-stopped
+    # ---------- GPU SUPPORT ----------
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    # --------------------------------
