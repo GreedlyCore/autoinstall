@@ -18,6 +18,28 @@ apt-get update && apt-get install curl git wget lsb-release -y
 
 # All Things are ready!
 
+For a Ghostty variant of [Auto-Kitty-Workspace](https://github.com/Juanfu224/Auto-Kitty-Workspace), run as your desktop user:
+
+```bash
+bash do-ghossty.sh
+```
+
+This installs Ghostty with **Catppuccin Macchiato**, Hack Nerd Font, Zsh,
+Starship, bat, lsd, fzf, and Neovim/NvChad. Requires Ubuntu, Git, Python 3.10+,
+sudo, curl, and internet access. Ghostty uses an existing native install, apt,
+or the [mkasberg/ghostty-ubuntu installer](https://github.com/mkasberg/ghostty-ubuntu).
+No Snap or Flatpak is required. The community installer currently supports Ubuntu
+24.04 and 26.04; Ubuntu 22.04 is unsupported. Installer failures stop the script
+before workspace configuration changes.
+The inspected baseline is pinned to `20731f79baf32092d545d1691d48cfd24497c867`
+and cloned into a temporary directory. Kitty is not installed. Existing Ghostty
+config is backed up alongside its file, respecting `XDG_CONFIG_HOME`.
+The default terminal is unchanged. The original `do-ubuntu-post.sh` remains the Kitty version.
+
+**Before running:** the baseline replaces user/root Zsh and Starship configuration,
+changes both login shells, and deletes existing user/root Neovim configuration,
+data, and cache. Back up your workspace first. See `bash do-ghossty.sh --help`.
+
 Just run the below command to bootstrap your Ubuntu setting. I recommend using this script in your local computer, not server.
 
 ```

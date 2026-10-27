@@ -1,0 +1,4 @@
+# Generated output and local build preferences
+/artifacts/
+/build/
+/usercfg.mk

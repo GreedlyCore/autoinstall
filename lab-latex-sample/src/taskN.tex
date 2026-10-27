@@ -1,0 +1,114 @@
+\section{Examples for a new task}
+
+Use this file as a starting point for the next section of your report. The
+examples below follow the style of the existing tasks. Rename the file,
+replace the sample data, and remove any examples you do not need.
+
+\subsection{Text and structure}
+Split ordinary text into paragraphs and organize the content into subsections.
+For example, introduce the model, present the simulation results, and then
+discuss them.
+
+Use a standard list for bullet points:
+\begin{itemize}
+    \item first item;
+    \item second item;
+    \item third item.
+\end{itemize}
+
+A numbered list:
+\begin{enumerate}
+    \item define the model;
+    \item perform the calculation;
+    \item analyze the result.
+\end{enumerate}
+
+\subsection{Equations and systems of equations}
+Use the \texttt{equation} environment to add a number and a label to an equation:
+\begin{equation}
+    \dot{x} = Ax + Bu, \qquad y = Cx,
+    \label{eq:taskN_model}
+\end{equation}
+You can then refer to it in the text: the model is defined by
+equation~\eqref{eq:taskN_model}.
+
+Use the \texttt{cases} environment for a system of equations:
+\begin{equation}
+    \begin{cases}
+        \dot{x} = Ax + Bu, \\
+        y = Cx.
+    \end{cases}
+\end{equation}
+
+\subsection{Matrices and vectors}
+Use \texttt{bmatrix} for an ordinary matrix:
+\begin{equation}
+    A = \begin{bmatrix}
+        0 & 1 \\
+        -2 & -3
+    \end{bmatrix}.
+\end{equation}
+
+Use the row vector shortcut and separate entries with \texttt{\&}:
+\begin{equation}
+    x_0 = \rowvec{1 & 2 & 3}.
+\end{equation}
+
+For a column vector, separate entries with \texttt{\textbackslash\textbackslash}:
+\begin{equation}
+    b = \colvec{1 \\ -2 \\ 3}.
+\end{equation}
+
+The commands \texttt{\textbackslash rowvec} and \texttt{\textbackslash colvec}
+create a matrix in square brackets and accept any number of entries.
+
+\subsection{Results table}
+\begin{table}[ht!]
+    \centering
+    \begin{tabular}{|c|c|c|}
+        \hline
+        Parameter & Value & Unit \\
+        \hline
+        $T$ & 3 & s \\
+        $\alpha$ & 0.5 & -- \\
+        \hline
+    \end{tabular}
+    \caption{Example results table}
+    \label{tab:taskN_example}
+\end{table}
+Refer to the table using its label: table~\ref{tab:taskN_example}.
+
+\subsection{Adding an image}
+This shortcut inserts an image at the full text width:
+\begin{verbatim}
+\simpleimagepaste{media/plots/example.png}
+\end{verbatim}
+
+To add a caption and a reference label, supply them in square brackets:
+\begin{verbatim}
+\simpleimagepaste[Signal comparison][fig:taskN_comparison]
+    {media/plots/example.png}
+\end{verbatim}
+Refer to this figure in the text with
+\verb|\ref{fig:taskN_comparison}|.
+You can also supply a caption without a label:
+\begin{verbatim}
+\simpleimagepaste[Output signal plot]{media/plots/example.png}
+\end{verbatim}
+
+To make an image narrower than the text, specify its width explicitly:
+\begin{verbatim}
+\imageatwidth[System diagram][fig:taskN_scheme]
+    {0.7\textwidth}{media/scheme1.png}
+\end{verbatim}
+
+Paths are relative to the project root directory. The caption and label are
+optional; omitting the caption inserts only the image.
+
+% Example call (uncomment when the image file exists):
+% \simpleimagepaste[Example plot][fig:taskN_plot]{media/plots/example.png}
+
+\subsection{Cross-references}
+Use \texttt{\textbackslash label} and \texttt{\textbackslash ref} for references
+within the document, or \texttt{\textbackslash eqref} for equations.
+For example: equation~\eqref{eq:taskN_model} defines the sample model.

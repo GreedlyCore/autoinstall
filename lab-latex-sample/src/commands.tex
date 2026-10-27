@@ -1,0 +1,36 @@
+% Reusable commands for report content. Load this file from the preamble.
+
+% Compact row and column vectors. Separate row entries with & and column
+% entries with \\ (as in an ordinary bmatrix).
+\newcommand{\rowvec}[1]{\begin{bmatrix}#1\end{bmatrix}}
+\newcommand{\colvec}[1]{\begin{bmatrix}#1\end{bmatrix}}
+
+% Image helper:
+%   \simpleimagepaste{path}
+%   \simpleimagepaste[caption]{path}
+%   \simpleimagepaste[caption][label]{path}
+% Width defaults to the text width. If a caption is supplied, a label may
+% optionally be supplied as the second optional argument.
+\NewDocumentCommand{\simpleimagepaste}{o o m}{%
+  \begin{figure}[ht!]%
+    \centering
+    \includegraphics[width=\textwidth]{#3}%
+    \IfNoValueF{#1}{%
+      \caption{#1}%
+      \IfNoValueF{#2}{\label{#2}}%
+    }%
+  \end{figure}%
+}
+
+% Image helper with a custom width:
+%   \imageatwidth[caption][label]{width}{path}
+\NewDocumentCommand{\imageatwidth}{o o m m}{%
+  \begin{figure}[ht!]%
+    \centering
+    \includegraphics[width=#3]{#4}%
+    \IfNoValueF{#1}{%
+      \caption{#1}%
+      \IfNoValueF{#2}{\label{#2}}%
+    }%
+  \end{figure}%
+}

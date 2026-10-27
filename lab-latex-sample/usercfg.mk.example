@@ -1,0 +1,9 @@
+# Copy to usercfg.mk for optional local settings.
+# Command-line settings take precedence.
+# BACKEND ?= -pdf       # pdfLaTeX (default, matches the current preamble)
+# BACKEND ?= -xelatex   # XeLaTeX (may need font/preamble changes)
+# BACKEND ?= -lualatex  # LuaLaTeX (may need font/preamble changes)
+# LATEXMKFLAGS ?= -silent
+# TEXLIVE_BIN ?= /usr/local/texlive/2026/bin/x86_64-linux
+# SOURCE ?= src/main   # Root .tex file path, without the extension
+# TARGET ?= main       # Output filename, without the extension

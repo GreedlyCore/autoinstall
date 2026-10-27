@@ -1,0 +1,16 @@
+# Minimal adaptation of the reference project's latexmk configuration.
+# All compiler output, including the working PDF, stays in artifacts/.
+@default_files = ('src/main.tex');
+# Resolve short \input/\include names from src/ while retaining the project
+# root as the working directory for media paths and generated output.
+ensure_path('TEXINPUTS', './src//');
+$out_dir = 'artifacts';
+$pdf_mode = 1;
+$max_repeat = 7;
+$recorder = 1;
+$synctex = 1;
+
+# Stop on errors and show the source file and line in diagnostics.
+$pdflatex = 'pdflatex -interaction=nonstopmode -halt-on-error -file-line-error %O %S';
+$xelatex = 'xelatex -interaction=nonstopmode -halt-on-error -file-line-error %O %S';
+$lualatex = 'lualatex -interaction=nonstopmode -halt-on-error -file-line-error %O %S';
